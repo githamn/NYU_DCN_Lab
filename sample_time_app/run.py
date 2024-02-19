@@ -1,11 +1,18 @@
 from flask import Flask
-app = Flask(__name__)
+import datetime
+import time
 
+app = Flask(__name__)
+now = datetime.datetime.now()
 
 @app.route('/')
-def hello_world():
-    return 'Hello world!'
+def Welcome():
+    return 'ZW4074'
 
+@app.route('/time')
+def print_current_time():
+    current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    return "Current Time: " + current_time
 
 app.run(host='0.0.0.0',
         port=8080,
